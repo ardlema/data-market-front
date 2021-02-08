@@ -5,14 +5,4 @@
   </li>
 </ul>
 
-<div *ngIf="selectedDataProduct">
-
-  <h2>{{selectedDataProduct.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{selectedDataProduct.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="selectedDataProduct.name" placeholder="name"/>
-    </label>
-  </div>
-
-</div>
+<app-data-product-detail [dataProduct]="selectedDataProduct"></app-data-product-detail>

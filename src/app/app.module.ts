@@ -5,11 +5,13 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DataProductsComponent } from './data-products/data-products.component';
+import { DataProductDetailComponent } from './data-product-detail/data-product-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DataProductsComponent
+    DataProductsComponent,
+    DataProductDetailComponent
   ],
   imports: [
     BrowserModule,
