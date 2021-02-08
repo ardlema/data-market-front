@@ -10,14 +10,7 @@ import { MessageService } from '../message.service';
 })
 export class DataProductsComponent implements OnInit {
 
-  selectedDataProduct: DataProduct;
-
   dataProducts: DataProduct[];
-
-  onSelect(dataProduct: DataProduct): void {
-    this.selectedDataProduct = dataProduct;
-    this.messageService.add(`DataProductComponent: Selected data product id=${dataProduct.id}`);
-  }
 
   constructor(private dataProductService: DataProductService, private messageService: MessageService) { }
 

@@ -1,8 +1,8 @@
 <h2>Data Products</h2>
 <ul class="data-products">
-  <li *ngFor="let dataProduct of dataProducts" [class.selected]="dataProduct === selectedDataProduct" (click)="onSelect(dataProduct)">
-    <span class="badge">{{dataProduct.id}}</span> {{dataProduct.name}}
+  <li *ngFor="let dataProduct of dataProducts">
+    <a routerLink="/detail/{{dataProduct.id}}">
+      <span class="badge">{{dataProduct.id}}</span> {{dataProduct.name}}
+    </a>
   </li>
 </ul>
-
-<app-data-product-detail [dataProduct]="selectedDataProduct"></app-data-product-detail>
