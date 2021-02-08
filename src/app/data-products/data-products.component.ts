@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataProduct } from '../data-product';
 import { DataProductService } from '../data-product.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-data-products',
@@ -9,21 +10,23 @@ import { DataProductService } from '../data-product.service';
 })
 export class DataProductsComponent implements OnInit {
 
+  selectedDataProduct: DataProduct;
+
   dataProducts: DataProduct[];
 
-  selectedDataProduct: DataProduct;
   onSelect(dataProduct: DataProduct): void {
     this.selectedDataProduct = dataProduct;
+    this.messageService.add(`DataProductComponent: Selected data product id=${dataProduct.id}`);
   }
 
-  constructor(private dataProductService: DataProductService) { }
+  constructor(private dataProductService: DataProductService, private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.getDataProducts();
   }
 
   getDataProducts(): void {
-    this.dataProducts = this.dataProductService.getDataProducts();
+    this.dataProductService.getDataProducts()
+      .subscribe(dataProducts => this.dataProducts = dataProducts);
   }
-
 }
