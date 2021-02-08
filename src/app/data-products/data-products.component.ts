@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataProduct } from '../data-product';
-import { DATAPRODUCTS } from '../mock-data-products';
+import { DataProductService } from '../data-product.service';
 
 @Component({
   selector: 'app-data-products',
@@ -9,21 +9,21 @@ import { DATAPRODUCTS } from '../mock-data-products';
 })
 export class DataProductsComponent implements OnInit {
 
-  dataProduct: DataProduct = {
-    id: 1,
-    name: 'Post Flight Report ingester'
-  };
-
-  dataProducts = DATAPRODUCTS;
+  dataProducts: DataProduct[];
 
   selectedDataProduct: DataProduct;
   onSelect(dataProduct: DataProduct): void {
     this.selectedDataProduct = dataProduct;
   }
 
-  constructor() { }
+  constructor(private dataProductService: DataProductService) { }
 
   ngOnInit(): void {
+    this.getDataProducts();
+  }
+
+  getDataProducts(): void {
+    this.dataProducts = this.dataProductService.getDataProducts();
   }
 
 }
