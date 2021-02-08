@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'data-market-front';
+  title = 'Airbus Defence & Space - Data Market';
 }
