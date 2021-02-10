@@ -29,6 +29,11 @@ export class DataProductDetailComponent implements OnInit {
     this.location.back();
   }
 
+  save(): void {
+    this.dataProductService.updateDataProduct(this.dataProduct)
+      .subscribe(() => this.goBack());
+  }
+
   ngOnInit(): void {
     this.getDataProduct();
   }

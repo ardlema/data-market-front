@@ -22,4 +22,18 @@ export class DataProductsComponent implements OnInit {
     this.dataProductService.getDataProducts()
       .subscribe(dataProducts => this.dataProducts = dataProducts);
   }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.dataProductService.addDataProduct({ name } as DataProduct)
+      .subscribe(dataProduct => {
+        this.dataProducts.push(dataProduct);
+      });
+  }
+
+  delete(dataProduct: DataProduct): void {
+    this.dataProducts = this.dataProducts.filter(h => h !== dataProduct);
+    this.dataProductService.deleteDataProduct(dataProduct).subscribe();
+  }
 }
