@@ -1,13 +1,23 @@
 <div *ngIf="dataProduct">
   <button (click)="goBack()">go back</button>
   <h2>{{dataProduct.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{dataProduct.id}}</div>
+  <div><span>Id: </span>{{dataProduct.id}}</div>
   <div>
-    <label>name:
+    <label>Name:
       <input [(ngModel)]="dataProduct.name" placeholder="name"/>
     </label>
   </div>
-
+  <div>
+    <label>
+      Input ports:
+      <li *ngFor="let inputPort of dataProduct.input_port">
+        Key: {{inputPort.key}}
+        <ul>
+          <li>Source: {{inputPort.source}}</li>
+        </ul>
+      </li>
+    </label>
+  </div>
 </div>
 
 <button (click)="save()">save</button>

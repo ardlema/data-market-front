@@ -7,8 +7,9 @@ import { DataProduct } from './data-product';
 })
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
+    const inputPort1 = { key: 'kafka_topic_signals', source: 'Kafka topic'};
     const dataproducts = [
-      { id: 11, name: 'Dr Nice' },
+      { id: 11, name: 'Dr Nice', input_port: [inputPort1]},
       { id: 12, name: 'Narco' },
       { id: 13, name: 'Bombasto' },
       { id: 14, name: 'Celeritas' },
