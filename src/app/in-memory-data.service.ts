@@ -7,18 +7,14 @@ import { DataProduct } from './data-product';
 })
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    const inputPort1 = { key: 'kafka_topic_signals', source: 'Kafka topic'};
+    const inputPort1 = { key: 'thingworx_api', source: 'Thingworx API Rest'};
+    const inputPort2 = { key: 'kafka_topic_signals', source: 'Kafka topic'};
+    const outputPort1 = { key: 'postgresql_historic_cbc_sensors', sink: 'PostgreSQL table', metadata_link: 'http://localhost:5000/table_detail/test/postgres/public/accounts'};
+    const outputPort22 = { key: 'bigquery_real_time_cbc_sensors', sink: 'BigQuery table', metadata_link: 'http://localhost:5000/table_detail/test/bigquery/public/table1'};
+    const outputPort21 = { key: 'postgresql_real_time_cbc_sensors', sink: 'PostgreSQL table', metadata_link: 'http://localhost:5000/table_detail/test/postgres/public/accounts2'};
     const dataproducts = [
-      { id: 11, name: 'Dr Nice', input_port: [inputPort1]},
-      { id: 12, name: 'Narco' },
-      { id: 13, name: 'Bombasto' },
-      { id: 14, name: 'Celeritas' },
-      { id: 15, name: 'Magneta' },
-      { id: 16, name: 'RubberMan' },
-      { id: 17, name: 'Dynama' },
-      { id: 18, name: 'Dr IQ' },
-      { id: 19, name: 'Magma' },
-      { id: 20, name: 'Tornado' }
+      { id: 1, name: 'CBC - Historic sensors', input_port: [inputPort1], output_port: [outputPort1], image: 'assets/cbchistoricdataproduct.jpg'},
+      { id: 2, name: 'CBC - Real time sensors', input_port: [inputPort2], output_port: [outputPort21, outputPort22], image: 'assets/cbcrealtimedataproduct.jpg'}
     ];
     return {dataproducts};
   }

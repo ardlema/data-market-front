@@ -1,23 +1,80 @@
 <div *ngIf="dataProduct">
   <button (click)="goBack()">go back</button>
-  <h2>{{dataProduct.name | uppercase}} Details</h2>
-  <div><span>Id: </span>{{dataProduct.id}}</div>
-  <div>
-    <label>Name:
-      <input [(ngModel)]="dataProduct.name" placeholder="name"/>
-    </label>
-  </div>
-  <div>
-    <label>
-      Input ports:
-      <li *ngFor="let inputPort of dataProduct.input_port">
-        Key: {{inputPort.key}}
-        <ul>
-          <li>Source: {{inputPort.source}}</li>
-        </ul>
-      </li>
-    </label>
-  </div>
+  <h2>{{dataProduct.name}} - Data product details</h2>
+
+  <img src="{{dataProduct.image}}" alt="Data product image" usemap="#workmap">
+
+  <map name="workmap">
+    <area shape="rect" coords="700,100,900,250" alt="Output port 1" href="{{dataProduct.output_port[0].metadata_link}}" target="_blank">
+    <area shape="rect" coords="700,325,900,425" alt="Output port 2" href="{{dataProduct.output_port[1].metadata_link}}" target="_blank">
+  </map>
+
+  <table class="styled-table">
+    <thead>
+    <tr>
+      <th>Data product description</th>
+      <th>Telemetry data from different sensors located in the CBC (Centro Bahía de Cadiz) site. <br />
+        The data is periodically (every night at 12 am) pull from the IIoT platform (Thingworx) and then stored <br />
+        in a relational database table.
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Data Product owner name</td>
+      <td>Francisco Pérez Zuñiga</td>
+    </tr>
+    <tr>
+      <td>Data Product owner email</td>
+      <td>francisco.perez-zuniga@airbus.com</td>
+    </tr>
+    <tr>
+      <td>Domain context</td>
+      <td>Facilities</td>
+    </tr>
+    <tr>
+      <td>Data classification</td>
+      <td>Airbus Amber</td>
+    </tr>
+    <tr>
+      <td>Creation date</td>
+      <td>12/09/2020 12:30:45</td>
+    </tr>
+    <tr>
+      <td>Latest update</td>
+      <td>23/02/2021 21:45:78</td>
+    </tr>
+    <tr>
+      <td>Data reliability</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <td>Observability reports</td>
+      <td>Click <a href="https://www.montecarlodata.com/product/" target="_blank">here</a></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <table class="styled-table">
+    <thead>
+    <tr>
+      <th>Data product output port</th>
+      <th>How can I get access?
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>PostgreSQL table</td>
+      <td>A read-only user for the "CBC - Facilities" database is needed to fetch the data from the historic table. <br />
+        This database is located within the ARC Spanish instance. If you don't have a user for this database you can contact the team
+        responsible for managing this database by sending an email to the following address: cbc-facilities-admin@airbus.com</td>
+    </tr>
+    <tr>
+      <td>Data Product API</td>
+      <td>As a user of the Defence & Space data market you should have access to this data product API. Check out the
+      documentation by clicking on the image's output port. If you don't have access to the data product API you can
+      request it by sending an email to the following address: data-market-api@airbus.com</td>
+    </tr>
+    </tbody>
+  </table>
 </div>
 
-<button (click)="save()">save</button>
