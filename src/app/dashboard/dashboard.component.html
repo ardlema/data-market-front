@@ -3,9 +3,16 @@
 <div class="grid grid-pad">
   <a *ngFor="let dataproduct of dataProducts" class="col-1-4"
      routerLink="/detail/{{dataproduct.id}}">
+    <a *ngIf="dataproduct.domain_context === 'Facilities'">
     <div class="module hero">
       <h4>{{dataproduct.name}}</h4>
     </div>
+    </a>
+    <a *ngIf="dataproduct.domain_context === 'Finance'">
+      <div class="module2 hero">
+        <h4>{{dataproduct.name}}</h4>
+      </div>
+    </a>
   </a>
 </div>
 

@@ -15,43 +15,41 @@
     <thead>
     <tr>
       <th>Data product description</th>
-      <th>Telemetry data from different sensors located in the CBC (Centro Bahía de Cadiz) site. <br />
-        The data is periodically (every night at 12 am) pull from the IIoT platform (Thingworx). This data product provides
-        2 output ports:
+      <th>{{dataProduct.description}}</th>
     </tr>
     </thead>
     <tbody>
     <tr>
       <td>Owner name</td>
-      <td>Francisco Pérez Zuñiga</td>
+      <td>{{dataProduct.owner_name}}</td>
     </tr>
     <tr>
       <td>Owner email</td>
-      <td>francisco.perez-zuniga@airbus.com</td>
+      <td>{{dataProduct.owner_email}}</td>
     </tr>
     <tr>
       <td>Domain context</td>
-      <td>Facilities</td>
+      <td>{{dataProduct.domain_context}}</td>
     </tr>
     <tr>
-      <td>Data classification</td>
-      <td>Airbus Amber</td>
+      <td>Data classification level</td>
+      <td>{{dataProduct.data_classification_level}}</td>
     </tr>
     <tr>
       <td>Creation date</td>
-      <td>12/09/2020 12:30:45</td>
+      <td>{{dataProduct.creation_date}}</td>
     </tr>
     <tr>
       <td>Latest update</td>
-      <td>23/02/2021 21:45:78</td>
+      <td>{{dataProduct.latest_update}}</td>
     </tr>
     <tr>
       <td>Data reliability</td>
-      <td>High</td>
+      <td>{{dataProduct.data_reliability}}</td>
     </tr>
     <tr>
       <td>Observability reports</td>
-      <td>Click <a href="https://www.montecarlodata.com/product/" target="_blank">here</a></td>
+      <td>Click <a href="{{dataProduct.observability_reports_link}}" target="_blank">here</a></td>
     </tr>
     <tr>
       <td>Rate</td>
