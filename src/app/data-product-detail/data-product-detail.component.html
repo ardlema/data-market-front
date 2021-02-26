@@ -6,7 +6,9 @@
 
   <map name="workmap">
     <area shape="rect" coords="700,100,900,250" alt="Output port 1" href="{{dataProduct.output_port[0].metadata_link}}" target="_blank">
-    <area shape="rect" coords="700,325,900,425" alt="Output port 2" href="{{dataProduct.output_port[1].metadata_link}}" target="_blank">
+    <div *ngIf="dataProduct.output_port[1]">
+      <area shape="rect" coords="700,325,900,425" alt="Output port 2" href="{{dataProduct.output_port[1].metadata_link}}" target="_blank">
+    </div>
   </map>
 
   <table class="styled-table">
@@ -14,17 +16,17 @@
     <tr>
       <th>Data product description</th>
       <th>Telemetry data from different sensors located in the CBC (Centro Bahía de Cadiz) site. <br />
-        The data is periodically (every night at 12 am) pull from the IIoT platform (Thingworx) and then stored <br />
-        in a relational database table.
+        The data is periodically (every night at 12 am) pull from the IIoT platform (Thingworx). This data product provides
+        2 output ports:
     </tr>
     </thead>
     <tbody>
     <tr>
-      <td>Data Product owner name</td>
+      <td>Owner name</td>
       <td>Francisco Pérez Zuñiga</td>
     </tr>
     <tr>
-      <td>Data Product owner email</td>
+      <td>Owner email</td>
       <td>francisco.perez-zuniga@airbus.com</td>
     </tr>
     <tr>
@@ -50,6 +52,10 @@
     <tr>
       <td>Observability reports</td>
       <td>Click <a href="https://www.montecarlodata.com/product/" target="_blank">here</a></td>
+    </tr>
+    <tr>
+      <td>Rate</td>
+      <td><img src="{{dataProduct.rate}}" alt="Data product rate" width="150" height="30"></td>
     </tr>
     </tbody>
   </table>

@@ -7,6 +7,7 @@ export interface DataProduct {
   input_port: Array<InputPort>;
   output_port: Array<OutputPort>;
   image: string;
+  rate: string;
 }
 
 

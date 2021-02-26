@@ -13,8 +13,8 @@ export class InMemoryDataService implements InMemoryDbService {
     const outputPort22 = { key: 'bigquery_real_time_cbc_sensors', sink: 'BigQuery table', metadata_link: 'http://localhost:5000/table_detail/test/bigquery/public/table1'};
     const outputPort21 = { key: 'postgresql_real_time_cbc_sensors', sink: 'PostgreSQL table', metadata_link: 'http://localhost:5000/table_detail/test/postgres/public/accounts2'};
     const dataproducts = [
-      { id: 1, name: 'CBC - Historic sensors', input_port: [inputPort1], output_port: [outputPort1], image: 'assets/cbchistoricdataproduct.jpg'},
-      { id: 2, name: 'CBC - Real time sensors', input_port: [inputPort2], output_port: [outputPort21, outputPort22], image: 'assets/cbcrealtimedataproduct.jpg'}
+      { id: 1, name: 'CBC - Historic sensors', input_port: [inputPort1], output_port: [outputPort1], image: 'assets/cbchistoricdataproduct.jpg', rate: 'assets/stars5outof5.png'},
+      { id: 2, name: 'CBC - Real time sensors', input_port: [inputPort2], output_port: [outputPort21, outputPort22], image: 'assets/cbcrealtimedataproduct.jpg', rate: 'assets/stars4outof5.png'}
     ];
     return {dataproducts};
   }
