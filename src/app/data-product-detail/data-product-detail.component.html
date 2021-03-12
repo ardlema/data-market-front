@@ -44,12 +44,12 @@
       <td>{{dataProduct.latest_update}}</td>
     </tr>
     <tr>
-      <td>Data reliability</td>
-      <td>{{dataProduct.data_reliability}}</td>
+      <td>Data quality reports</td>
+      <td>Click <a href="{{dataProduct.observability_reports_link}}" target="_blank">here</a></td>
     </tr>
     <tr>
-      <td>Observability reports</td>
-      <td>Click <a href="{{dataProduct.observability_reports_link}}" target="_blank">here</a></td>
+      <td>Data preview</td>
+      <td>Click <a href="http://localhost:8088/r/4" target="_blank">here</a></td>
     </tr>
     <tr>
       <td>Rate</td>
@@ -66,19 +66,13 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>PostgreSQL table</td>
-      <td>A read-only user for the "CBC - Facilities" database is needed to fetch the data from the historic table. <br />
-        This database is located within the ARC Spanish instance. If you don't have a user for this database you can contact the team
-        responsible for managing this database by sending an email to the following address: cbc-facilities-admin@airbus.com</td>
-    </tr>
-    <tr>
-      <td>Data Product API</td>
-      <td>As a user of the Defence & Space data market you should have access to this data product API. Check out the
-      documentation by clicking on the image's output port. If you don't have access to the data product API you can
-      request it by sending an email to the following address: data-market-api@airbus.com</td>
+
+    <tr *ngFor="let outputPort of dataProduct.output_port">
+      <td>{{outputPort.sink}}</td>
+      <td>{{outputPort.how_to_access}}</td>
     </tr>
     </tbody>
   </table>
 </div>
+
 
